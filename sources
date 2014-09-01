@@ -1,0 +1,26 @@
+TARGETNAME=rsrcExtractor
+TARGETPATH=.
+TARGETTYPE=DYNLINK
+USE_MSVCRT=1
+UMTYPE=windows
+
+INCLUDES        =       $(INCLUDES)     \
+                        z:\idasdk61\include
+
+#for ida32
+TARGETEXT=plw
+C_DEFINES       =       $(C_DEFINES) /D__NT__ /DNDEBUG /D__IDP__ /DMAXSTR=1024
+TARGETLIBS      =       $(SDK_LIB_PATH)\kernel32.lib\
+                        Z:\idasdk61\lib\x86_win_vc_32\ida.lib
+
+
+#for ida64
+#TARGETEXT=p64
+#C_DEFINES       =       $(C_DEFINES) /D__EA64__ /D__NT__ /DNDEBUG /D__IDP__ /DMAXSTR=1024
+#TARGETLIBS      =       $(SDK_LIB_PATH)\kernel32.lib\
+#                        Z:\idasdk61\lib\x86_win_vc_64\ida.lib
+
+SOURCES         =       main.cpp        \
+                        rsrc.cpp
+                        
+
